@@ -1,0 +1,16 @@
+<div class="login">
+   <h1>Predicting the probabiltiy for positive or negative review</h3>
+    <h3> Enter your review</h3>
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="your review" placeholder="your review" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+
+    <br>
+    <br>
+    {{ prediction_text }}
+
+</div>
