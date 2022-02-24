@@ -19,3 +19,4 @@ typing-extensions==4.1.1
 waitress==2.0.0
 Werkzeug==2.0.3
 zipp==3.7.0
+python==3.7.3
