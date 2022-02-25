@@ -3,7 +3,7 @@
     <h3> Enter your review</h3>
 
     <form action="{{ url_for('predict')}}"method="post">
-        <input type="text" name="your review" placeholder="your review" required="required" />
+        <input type="text" name="your review" placeholder="your review" required="required" size="80"/>
 
         <button type="submit" class="btn">Predict</button>
     </form>
@@ -12,5 +12,11 @@
     <br>
     <br>
     {{ prediction_text }}
+    <br>
+    <br>
+    <p>©Made by Vitali Tsentsiper</p>
+
+    <a href="https://www.linkedin.com/in/vitali-tsentsiper">Visit my Linkedin</a>
+
 
 </div>
