@@ -6,10 +6,7 @@
 
 from flask import Flask, render_template,request
 import pickle
-import re 
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
+import re
 
 
 # In[13]:
@@ -25,16 +22,8 @@ def home():
 @app.route('/Predict', methods=['POST'])
 def predict():
     int_features = [str(x) for x in request.form.values()]
-    pattern = r"[^a-zA-Z']"
-    int_features = re.sub(pattern, " ", str(int_features))
-    int_features = int_features.lower()
-    lemmas_final=[]    
-    tokens = word_tokenize(int_features)
-    lemmatizer  = WordNetLemmatizer()
-    lemmas = [lemmatizer.lemmatize(token, pos='v') for token in tokens] 
-    lemmas_final.append(' '.join(lemmas))
 
-    final = count_tf_idf.transform(lemmas_final)
+    final = count_tf_idf.transform(int_features)
 
     prediction_proba= model_1.predict_proba(final)[:, 1]
     if prediction_proba > 0.5:
